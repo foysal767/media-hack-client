@@ -27,8 +27,9 @@ const AboutEdit = ({ aboutEdit, setAboutEdit }) => {
         })
         .then(res => res.json())
         .then(data => {
-            if(data.modifiedCount > 0){
+            if(data?.modifiedCount > 0){
                 toast.success("Edited Successfully")
+                setAboutEdit(null)
             }
         })
     }
