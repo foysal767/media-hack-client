@@ -11,7 +11,7 @@ const PostDetails = () => {
         const likes = {
             like: like + 1
         }
-        fetch(`http://localhost:5000/allPost/${id}`, {
+        fetch(`https://media-social-server.vercel.app/allPost/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'

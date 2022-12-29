@@ -28,7 +28,7 @@ const AddPost = () => {
                         img: imgData.data.url,
                         like: 0
                     }
-                    fetch("http://localhost:5000/addpost", {
+                    fetch("https://media-social-server.vercel.app/addpost", {
                         method: 'POSt',
                         headers: {
                             'content-type': 'application/json'

@@ -8,7 +8,7 @@ const Media = () => {
         queryKey: ['popularPost'],
         queryFn: async () => {
             try {
-                const res = await fetch('http://localhost:5000/allpost')
+                const res = await fetch('https://media-social-server.vercel.app/allpost')
                 const data = await res.json()
                 return data
             }

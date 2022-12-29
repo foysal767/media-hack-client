@@ -10,7 +10,7 @@ const About = () => {
     const { data: details, isLoading, refetch } = useQuery({
         queryKey: ["details"],
         queryFn: async () => {
-            const res = await fetch("http://localhost:5000/about")
+            const res = await fetch("https://media-social-server.vercel.app/about")
             const data = await res.json()
             return data
         }

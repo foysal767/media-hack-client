@@ -18,7 +18,7 @@ const AboutEdit = ({ aboutEdit, setAboutEdit }) => {
             institute: institute,
             address: address
         }
-        fetch(`http://localhost:5000/about/${_id}`, {
+        fetch(`https://media-social-server.vercel.app/about/${_id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'

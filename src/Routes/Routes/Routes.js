@@ -43,7 +43,7 @@ const router = createBrowserRouter([
             {
                 path: '/details/:id',
                 element: <PrivateRoute><PostDetails></PostDetails></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/details/${params.id}`)
+                loader: ({ params }) => fetch(`https://media-social-server.vercel.app/details/${params.id}`)
             }
         ]
     },
