@@ -1,7 +1,7 @@
 import React from 'react';
 import { toast } from 'react-hot-toast';
 
-const AboutEdit = ({ aboutEdit, setAboutEdit }) => {
+const AboutEdit = ({ aboutEdit, setAboutEdit, refetch }) => {
     const { name, email, institute, address, _id } = aboutEdit;
     console.log(aboutEdit);
     const handleEdit = e =>{
@@ -30,6 +30,7 @@ const AboutEdit = ({ aboutEdit, setAboutEdit }) => {
             if(data?.modifiedCount > 0){
                 toast.success("Edited Successfully")
                 setAboutEdit(null)
+                refetch()
             }
         })
     }

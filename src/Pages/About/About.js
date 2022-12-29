@@ -35,6 +35,7 @@ const About = () => {
                 <AboutEdit
                 aboutEdit={aboutEdit}
                 setAboutEdit={setAboutEdit}
+                refetch={refetch}
                 ></AboutEdit>
             }
         </section>
