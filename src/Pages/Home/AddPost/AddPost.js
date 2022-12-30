@@ -1,16 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const AddPost = () => {
+    const {user} = useContext(AuthContext)
     const { register, handleSubmit, formState: { errors } } = useForm();
     const navigate = useNavigate()
     const imageHostingKey = "9b3ea6038c9c0753f3e8d7849b4d71fb";
 
 
     const handleAddPost = data => {
-        console.log(imageHostingKey)
+        console.log(user?.displayName)
+        if(!user){
+            toast.error("Please Login first before adding post")
+            return navigate('/login')
+        }
         const image = data.image[0];
         const formData = new FormData();
         formData.append('image', image);
@@ -26,6 +32,8 @@ const AddPost = () => {
                     const post = {
                         post: data.post,
                         img: imgData.data.url,
+                        userEmail: user?.email,
+                        author: user?.displayName,
                         like: 0
                     }
                     fetch("https://media-social-server.vercel.app/addpost", {

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
 
 const AllPostCard = ({ singlePost, refetch }) => {
-    const { post, img, like } = singlePost;
+    const { post, img, like, author } = singlePost;
     const handleLike = id => {
         const likes = {
             like: like + 1
@@ -29,6 +29,12 @@ const AllPostCard = ({ singlePost, refetch }) => {
     return (
         <div className="card lg:card-side shadow-xl p-6 border border-gray-200 bg-white">
             <div className='card'>
+                {
+                    author ?
+                        <h4 className='w-8/12 text-lg font-medium text-left mb-2  p-1 rounded-xl'>{author}</h4>
+                        :
+                        <h4 className='w-8/12 text-lg font-medium text-left mb-2  p-1 rounded-xl'>No Name Found</h4>
+                }
                 <div className='h-44 rounded-md'>
                     <figure className='w-10/12 mx-auto h-44'><img src={img} alt="Album" /></figure>
                 </div>
