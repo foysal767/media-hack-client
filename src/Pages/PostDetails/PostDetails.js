@@ -32,10 +32,10 @@ const PostDetails = () => {
             <div className="w-10/12 mx-auto shadow-md mb-10 py-12 bg-teal-200 rounded-xl">
                 <div className="w-10/12 mx-auto bg-white py-8 rounded-xl">
                     <div className="w-8/12 mx-auto">
-                        <img src={img} alt="" className="w-3/4 mx-auto rounded-md h-72 dark:bg-gray-500" />
+                        <img src={img} alt="" className="w-3/4 mx-auto rounded-md h-36 md:h-72" />
                     </div>
                     <div className="w-3/4 mx-auto space-y-2 text-center mt-8 mb-2">
-                        <p className='text-left pb-10 text-lg'>{post}</p>
+                        <p className='text-left pb-6 text-lg'>{post}</p>
                     </div>
                     <hr className='w-3/4 mx-auto' />
                     <div className='w-6/12 mx-auto flex justify-between my-2'>
