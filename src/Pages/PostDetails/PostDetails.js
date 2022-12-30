@@ -4,7 +4,7 @@ import { toast } from 'react-hot-toast';
 import { useLoaderData } from 'react-router-dom';
 
 const PostDetails = () => {
-    const { post, img, like, _id } = useLoaderData()
+    const { post, img, like, _id, author } = useLoaderData()
     const [likeCount, setLikeCount] = useState(like)
 
     const handleLike = id => {
@@ -31,6 +31,14 @@ const PostDetails = () => {
         <div className='my-12'>
             <div className="w-10/12 mx-auto shadow-md mb-10 py-12 bg-teal-200 rounded-xl">
                 <div className="w-10/12 mx-auto bg-white py-8 rounded-xl">
+                    <div className='w-8/12 mx-auto'>
+                        {
+                            author ?
+                                <h4 className='text-lg font-medium text-left mb-2  p-1 rounded-xl'>{author}</h4>
+                                :
+                                <h4 className='text-lg font-medium text-left mb-2  p-1 rounded-xl'>No Name Found</h4>
+                        }
+                    </div>
                     <div className="w-8/12 mx-auto">
                         <img src={img} alt="" className="w-3/4 mx-auto rounded-md h-36 md:h-72" />
                     </div>
