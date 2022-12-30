@@ -8,9 +8,9 @@ const PostCard = ({ pPost }) => {
             <div className='card'>
                 {
                     author ?
-                    <h4 className='w-8/12 text-lg font-medium text-left mb-2  p-1 rounded-xl'>{author}</h4>
+                    <h4 className='text-lg font-medium text-left mb-2  p-1 rounded-xl'>{author}</h4>
                     :
-                    <h4 className='w-8/12 text-lg font-medium text-left mb-2  p-1 rounded-xl'>No Name Found</h4>
+                    <h4 className='text-lg font-medium text-left mb-2  p-1 rounded-xl'>No Name Found</h4>
                 }
                 <div className='h-44 rounded-md'>
                     <figure className='w-10/12 mx-auto h-44'><img src={img} alt="Album" /></figure>
