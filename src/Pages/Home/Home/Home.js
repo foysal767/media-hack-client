@@ -6,21 +6,21 @@ import Banner from '../Banner/Banner';
 import PopularPost from '../PopularPost/PopularPost';
 
 const Home = () => {
-    const {data: popularPost, isLoading} = useQuery({
+    const { data: popularPost, isLoading } = useQuery({
         queryKey: ['popularPost'],
-        queryFn: async() => {
+        queryFn: async () => {
             try {
-                const res= await fetch('https://media-social-server.vercel.app/popularpost')
+                const res = await fetch('https://media-social-server.vercel.app/popularpost')
                 const data = await res.json()
                 return data
             }
-            catch(error){
+            catch (error) {
 
             }
         }
     })
 
-    if(isLoading){
+    if (isLoading) {
         return <Loading></Loading>
     }
     return (

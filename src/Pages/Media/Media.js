@@ -30,7 +30,6 @@ const Media = () => {
                     allPost?.map(singlePost => <AllPostCard
                         key={singlePost._id}
                         singlePost={singlePost}
-                        refetch={refetch}
                     ></AllPostCard>)
                 }
             </div>

@@ -3,10 +3,28 @@ import { ChatBubbleLeftEllipsisIcon } from '@heroicons/react/24/outline';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
+import { useQuery } from '@tanstack/react-query';
+import Loading from '../Shared/Loading/Loading';
 
-const AllPostCard = ({ singlePost, refetch }) => {
-    refetch()
-    const { post, img, like, author } = singlePost;
+const AllPostCard = ({ singlePost }) => {
+    const { post, img, like, author, _id } = singlePost;
+    const { data: comments, isLoading, refetch } = useQuery({
+        queryKey: ["comments", _id],
+        queryFn: async () => {
+            try {
+                const res = await fetch(`https://media-social-server-foysal767.vercel.app/comments/${_id}`)
+                const data = await res.json()
+                return data
+            }
+            catch (error) {
+                console.log(error)
+            }
+        }
+    })
+    console.log(`${_id}`, comments)
+    if (isLoading) {
+        return <Loading></Loading>
+    }
     const handleLike = id => {
         const likes = {
             like: like + 1
@@ -26,7 +44,6 @@ const AllPostCard = ({ singlePost, refetch }) => {
                 }
             })
     }
-
     return (
         <div className="card lg:card-side shadow-xl p-6 border border-gray-200 bg-white">
             <div className='card'>
@@ -64,7 +81,12 @@ const AllPostCard = ({ singlePost, refetch }) => {
                             :
                             <p>No like Yet</p>
                     }
-                    <p className='my-2 text-left'>20 comments</p>
+                    {
+                        comments?.length >= 1 ?
+                            <p>{comments?.length} comments</p>
+                            :
+                            <p>No Comment</p>
+                    }
                 </div>
                 <hr />
                 <div className='w-10/12 mx-auto flex justify-between my-2'>
